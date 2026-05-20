@@ -16,27 +16,6 @@ window.addEventListener("load", () => {
   updateVH();
 });
 
-// ----- Gate Opening Experience -----
-const introOverlay = document.getElementById("intro-overlay");
-const gateContainer = document.getElementById("gateContainer");
-
-if (gateContainer) {
-  gateContainer.addEventListener("click", () => {
-    gateContainer.classList.add("open");
-    
-    // Sequence the reveal after gate animation
-    setTimeout(() => {
-      introOverlay.classList.add("fade-out");
-      document.body.classList.remove("intro-active");
-      document.body.classList.add("revealed");
-      
-      // Optional: Auto-play music when opened
-      const audio = document.getElementById("bgMusic");
-      if (audio) audio.play().catch(() => {}); // .catch() to prevent error if user hasn't interacted yet
-    }, 2500); // Adjust this timeout to match gate opening animation duration + desired delay
-  });
-}
-
 // ----- Custom cursor -----
 const dot = document.querySelector(".cursor-dot");
 const ring = document.querySelector(".cursor-ring");
@@ -124,11 +103,13 @@ if (localStorage.getItem("theme") === "dark") {
 const audio = document.getElementById("bgMusic");
 const audioBtn = document.getElementById("audioToggle");
 let playing = false;
-audioBtn.addEventListener("click", () => {
-  if (playing) { audio.pause(); audioBtn.textContent = "♪"; }
-  else { audio.play().catch(()=>{}); audioBtn.textContent = "❚❚"; }
-  playing = !playing;
-});
+if (audioBtn && audio) {
+  audioBtn.addEventListener("click", () => {
+    if (playing) { audio.pause(); audioBtn.textContent = "♪"; }
+    else { audio.play().catch(()=>{}); audioBtn.textContent = "❚❚"; }
+    playing = !playing;
+  });
+}
 
 // ----- Countdown -----
 const WEDDING = new Date("2026-05-28T11:11:00+05:30").getTime();
@@ -141,10 +122,16 @@ function tick() {
   const s = Math.floor((diff % 60000) / 1000);
   
   const pad = n => String(n).padStart(2, "0");
-  document.getElementById("cd-days").textContent = pad(d);
-  document.getElementById("cd-hours").textContent = pad(h);
-  document.getElementById("cd-mins").textContent = pad(m);
-  document.getElementById("cd-secs").textContent = pad(s);
+
+  const dEl = document.getElementById("cd-days");
+  const hEl = document.getElementById("cd-hours");
+  const mEl = document.getElementById("cd-mins");
+  const sEl = document.getElementById("cd-secs");
+
+  if (dEl) dEl.textContent = pad(d);
+  if (hEl) hEl.textContent = pad(h);
+  if (mEl) mEl.textContent = pad(m);
+  if (sEl) sEl.textContent = pad(s);
 }
 const timerInterval = setInterval(tick, 1000); tick();
 
@@ -211,17 +198,20 @@ initPetals();
 
 // ----- RSVP localStorage -----
 const rsvpForm = document.getElementById("rsvpForm");
-rsvpForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const fd = new FormData(rsvpForm);
-  const data = Object.fromEntries(fd.entries());
-  data.ts = new Date().toISOString();
-  const all = JSON.parse(localStorage.getItem("rsvps") || "[]");
-  all.push(data);
-  localStorage.setItem("rsvps", JSON.stringify(all));
-  document.getElementById("rsvpThanks").hidden = false;
-  rsvpForm.reset();
-});
+if (rsvpForm) {
+  rsvpForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fd = new FormData(rsvpForm);
+    const data = Object.fromEntries(fd.entries());
+    data.ts = new Date().toISOString();
+    const all = JSON.parse(localStorage.getItem("rsvps") || "[]");
+    all.push(data);
+    localStorage.setItem("rsvps", JSON.stringify(all));
+    const thanks = document.getElementById("rsvpThanks");
+    if (thanks) thanks.hidden = false;
+    rsvpForm.reset();
+  });
+}
 
 // Lightbox (remains in script.js as it's used by gallery in index.html and rsvp.html)
 const lightbox = document.getElementById("lightbox"); 
