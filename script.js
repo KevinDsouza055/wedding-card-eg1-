@@ -30,8 +30,14 @@ if (window.matchMedia("(pointer: fine)").matches) {
       el.addEventListener("mouseleave", () => ring.classList.remove("grow"));
     });
 } else {
-  if (dot) dot.style.display = "none";
-  if (ring) ring.style.display = "none";
+  if (dot) {
+    dot.style.display = "none";
+    dot.remove();
+  }
+  if (ring) {
+    ring.style.display = "none";
+    ring.remove();
+  }
 }
 
 // ----- Nav scroll & mobile menu -----
@@ -108,17 +114,18 @@ const WEDDING = new Date("2026-05-28T11:11:00+05:30").getTime();
 function tick() {
   const now = Date.now();
   let diff = Math.max(0, WEDDING - now);
-  const d = Math.floor(diff / 86400000); diff %= 86400000;
-  const h = Math.floor(diff / 3600000); diff %= 3600000;
-  const m = Math.floor(diff / 60000); diff %= 60000;
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
   const s = Math.floor((diff % 60000) / 1000);
+  
   const pad = n => String(n).padStart(2, "0");
   document.getElementById("cd-days").textContent = pad(d);
   document.getElementById("cd-hours").textContent = pad(h);
   document.getElementById("cd-mins").textContent = pad(m);
   document.getElementById("cd-secs").textContent = pad(s);
 }
-setInterval(tick, 1000); tick();
+const timerInterval = setInterval(tick, 1000); tick();
 
 // ----- Particles -----
 const canvas = document.getElementById("particles");
