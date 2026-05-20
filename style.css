@@ -318,32 +318,55 @@ img { max-width: 100%; display: block; }
 }
 
 /* ========= COUNTDOWN ========= */
-.countdown { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
-.cd-card {
-  flex: 1 1 calc(50% - 1rem); max-width: 160px; padding: 1.5rem 0.5rem;
-  background: var(--glass); backdrop-filter: blur(14px);
-  border: 1px solid var(--glass-border); border-radius: 20px;
-  text-align: center; position: relative; overflow: hidden;
-  box-shadow: var(--shadow-gold);
-  transition: transform .4s ease;
+.countdown { 
+  display: flex; 
+  gap: 1.2rem; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+  padding: 2rem 0;
+  align-items: center;
 }
-.cd-card::before {
-  content: ""; position: absolute; inset: 0;
-  background: var(--grad-gold); opacity: 0;
-  transition: opacity .4s ease; z-index: -1;
+.cd-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass);
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+  position: relative;
 }
-.cd-card:hover { transform: translateY(-8px); }
-.cd-card span {
-  display: block; font-family: var(--f-display); font-weight: 800;
-  font-size: clamp(1.8rem, 5vw, 3rem); color: var(--maroon);
+.cd-item:hover {
+  border-color: var(--gold);
+  background: rgba(255, 250, 235, 0.85);
+  transform: scale(1.05); /* Smooth zoom only, no up/down movement */
+}
+
+.cd-medallion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cd-medallion span {
+  font-family: var(--f-display); font-weight: 800;
+  font-size: 2rem; 
   background: var(--grad-royal); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.cd-card label {
-  font-size: .8rem; letter-spacing: 3px;
-  color: var(--muted); text-transform: uppercase;
+.cd-item label {
+  font-family: var(--f-body); font-size: 0.7rem; 
+  letter-spacing: 2px; color: var(--muted); 
+  text-transform: uppercase; font-weight: 600;
+  margin-top: 0.2rem;
 }
-@media (max-width: 480px) {
-  .cd-card { flex: 1 1 40%; max-width: none; }
+@media (max-width: 600px) {
+  .countdown { gap: 0.8rem; }
+  .cd-item { width: 85px; height: 85px; }
+  .cd-medallion span { font-size: 1.6rem; }
+  .cd-item label { font-size: 0.6rem; letter-spacing: 1px; }
 }
 
 /* ========= COUPLE ========= */

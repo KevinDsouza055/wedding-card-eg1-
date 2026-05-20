@@ -99,18 +99,8 @@ if (localStorage.getItem("theme") === "dark") {
   themeBtn.textContent = "☀";
 }
 
-// ----- Audio toggle -----
-const audio = document.getElementById("bgMusic");
-const audioBtn = document.getElementById("audioToggle");
-let playing = false;
-audioBtn.addEventListener("click", () => {
-  if (playing) { audio.pause(); audioBtn.textContent = "♪"; }
-  else { audio.play().catch(()=>{}); audioBtn.textContent = "❚❚"; }
-  playing = !playing;
-});
-
 // ----- Countdown -----
-const WEDDING = new Date("2026-05-28T11:11:00+05:30").getTime();
+const WEDDING = new Date("2026-05-28T11:11:00+05:30").getTime(); // Target Date: May 28, 2026
 function tick() {
   const now = Date.now();
   let diff = Math.max(0, WEDDING - now);
