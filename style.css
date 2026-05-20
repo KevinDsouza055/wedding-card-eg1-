@@ -376,7 +376,7 @@ img { max-width: 100%; display: block; }
   width: 36px; height: 36px; border-radius: 50%;
   display: grid; place-items: center;
   border: 1px solid var(--glass-border);
-  font-size: .8rem; text-transform: uppercase;
+  font-size: 1rem;
   transition: all .3s ease;
 }
 .socials a:hover { background: var(--gold); color: var(--ink); }
@@ -585,8 +585,8 @@ img { max-width: 100%; display: block; }
 .footer-monogram small { font-size: 1.5rem; padding: 0 .25rem; }
 .footer-thanks { font-family: "Playfair Display", serif; font-style: italic; color: var(--maroon); font-size: 1.2rem; margin: 1rem 0; }
 [data-theme="dark"] .footer-thanks { color: var(--gold-soft); }
-.footer-socials { display: flex; gap: 1rem; justify-content: center; margin: 1rem 0; }
-.footer-socials a { color: var(--gold); letter-spacing: 1px; transition: color .3s; }
+.footer-socials { display: flex; gap: 1.5rem; justify-content: center; margin: 1rem 0; }
+.footer-socials a { color: var(--gold); font-size: 1.5rem; transition: all .3s ease; }
 .footer-socials a:hover { color: var(--maroon); }
 [data-theme="dark"] .footer-socials a:hover { color: var(--cream); }
 .copyright { color: var(--muted); font-size: .8rem; margin-top: 1rem; letter-spacing: 1px; }
