@@ -8,13 +8,34 @@ window.addEventListener("load", () => {
   if (loader) {
     setTimeout(() => loader.classList.add("hide"), 1000);
   }
-  AOS.init({ 
+  AOS.init({
     duration: 800, 
     once: true, 
     offset: 50
   });
   updateVH();
 });
+
+// ----- Gate Opening Experience -----
+const introOverlay = document.getElementById("intro-overlay");
+const gateContainer = document.getElementById("gateContainer");
+
+if (gateContainer) {
+  gateContainer.addEventListener("click", () => {
+    gateContainer.classList.add("open");
+    
+    // Sequence the reveal after gate animation
+    setTimeout(() => {
+      introOverlay.classList.add("fade-out");
+      document.body.classList.remove("intro-active");
+      document.body.classList.add("revealed");
+      
+      // Optional: Auto-play music when opened
+      const audio = document.getElementById("bgMusic");
+      if (audio) audio.play().catch(() => {}); // .catch() to prevent error if user hasn't interacted yet
+    }, 2500); // Adjust this timeout to match gate opening animation duration + desired delay
+  });
+}
 
 // ----- Custom cursor -----
 const dot = document.querySelector(".cursor-dot");
@@ -99,8 +120,18 @@ if (localStorage.getItem("theme") === "dark") {
   themeBtn.textContent = "☀";
 }
 
+// ----- Audio toggle -----
+const audio = document.getElementById("bgMusic");
+const audioBtn = document.getElementById("audioToggle");
+let playing = false;
+audioBtn.addEventListener("click", () => {
+  if (playing) { audio.pause(); audioBtn.textContent = "♪"; }
+  else { audio.play().catch(()=>{}); audioBtn.textContent = "❚❚"; }
+  playing = !playing;
+});
+
 // ----- Countdown -----
-const WEDDING = new Date("2026-05-28T11:11:00+05:30").getTime(); // Target Date: May 28, 2026
+const WEDDING = new Date("2026-05-28T11:11:00+05:30").getTime();
 function tick() {
   const now = Date.now();
   let diff = Math.max(0, WEDDING - now);
@@ -192,9 +223,9 @@ rsvpForm.addEventListener("submit", (e) => {
   rsvpForm.reset();
 });
 
-// Lightbox (remains in script.js as it's used by gallery in index.html)
-const lightbox = document.getElementById("lightbox"); // Ensure lightbox element exists in index.html
-const lightboxImg = document.getElementById("lightboxImg"); // Ensure lightboxImg element exists in index.html
+// Lightbox (remains in script.js as it's used by gallery in index.html and rsvp.html)
+const lightbox = document.getElementById("lightbox"); 
+const lightboxImg = document.getElementById("lightboxImg"); 
 
 document.addEventListener("click", e => {
   if (e.target.tagName === "IMG" && e.target.closest(".masonry")) {
