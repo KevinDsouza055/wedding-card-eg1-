@@ -24,7 +24,7 @@ if (window.matchMedia("(pointer: fine)").matches) {
     dot.style.left = ring.style.left = e.clientX + "px";
     dot.style.top = ring.style.top = e.clientY + "px";
   });
-  document.querySelectorAll("a, button, .cd-card, .couple-card, .t-card, .masonry img, .upload-label")
+  document.querySelectorAll("a, button, .cd-card, .couple-card, .t-card, .masonry img")
     .forEach(el => {
       el.addEventListener("mouseenter", () => ring.classList.add("grow"));
       el.addEventListener("mouseleave", () => ring.classList.remove("grow"));
@@ -202,56 +202,16 @@ rsvpForm.addEventListener("submit", (e) => {
   rsvpForm.reset();
 });
 
-// ----- Guest upload -----
-const upload = document.getElementById("guestUpload");
-const guestGallery = document.getElementById("guestGallery");
-function renderGuest() {
-  const imgs = JSON.parse(localStorage.getItem("guestImgs") || "[]");
-  guestGallery.innerHTML = imgs.map(src => `<img src="${src}" alt="guest">`).join("");
-}
-upload.addEventListener("change", (e) => {
-  [...e.target.files].forEach(f => {
-    const reader = new FileReader();
-    reader.onload = ev => {
-      const imgs = JSON.parse(localStorage.getItem("guestImgs") || "[]");
-      imgs.push(ev.target.result);
-      localStorage.setItem("guestImgs", JSON.stringify(imgs));
-      renderGuest();
-    };
-    reader.readAsDataURL(f);
-  });
-});
-renderGuest();
-
 // ----- Lightbox -----
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 
 document.addEventListener("click", e => {
-  if (e.target.tagName === "IMG" && (e.target.closest(".masonry") || e.target.closest(".guest-gallery"))) {
+  if (e.target.tagName === "IMG" && e.target.closest(".masonry")) {
     lightboxImg.src = e.target.src;
     lightbox.classList.add("open");
   }
   if (e.target.classList.contains("lb-close") || e.target === lightbox) {
     lightbox.classList.remove("open");
   }
-});
-
-// ----- Add to calendar (.ics) -----
-document.getElementById("calBtn").addEventListener("click", (e) => {
-  e.preventDefault();
-  const ics = [
-    "BEGIN:VCALENDAR", "VERSION:2.0", "BEGIN:VEVENT",
-    "SUMMARY:Aarav weds Saanvi",
-    "DTSTART:20260528T053000Z",
-    "DTEND:20260528T100000Z",
-    "LOCATION:Shaniwar Wada Gardens, Pune",
-    "DESCRIPTION:Wedding Ceremony of Aarav & Saanvi",
-    "END:VEVENT", "END:VCALENDAR"
-  ].join("\n");
-  const blob = new Blob([ics], { type: "text/calendar" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "aarav-saanvi-wedding.ics";
-  a.click();
 });
