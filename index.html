@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Aarav & Saanvi — A Royal Marathi Wedding Invitation. Join us as two souls become one." />
+<title>Aarav weds Saanvi · Royal Marathi Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&family=Tiro+Devanagari+Marathi&family=Yatra+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- =========== LOADER =========== -->
+<div id="loader" class="loader">
+  <div class="loader-mandala"></div>
+  <p class="loader-text">|| श्री गणेशाय नमः ||</p>
+</div>
+
+<!-- =========== CUSTOM CURSOR =========== -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- =========== SCROLL PROGRESS =========== -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- =========== PARTICLES =========== -->
+<canvas id="particles"></canvas>
+
+<!-- =========== FLOATING PETALS =========== -->
+<div class="petals" id="petals"></div>
+
+<!-- =========== NAV =========== -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav-logo">
+    <span class="monogram">A<small>&amp;</small>S</span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#hero">Home</a>
+    <a href="#couple">Couple</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#rsvp">RSVP</a>
+    <a href="#venue">Venue</a>
+    <a href="#family">Family</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeToggle" title="Toggle theme">☾</button>
+    <button class="icon-btn" id="audioToggle" title="Toggle music">♪</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_b87e9c4d6e.mp3?filename=indian-sitar-meditation-7969.mp3" type="audio/mpeg">
+</audio>
+
+<!-- =========== HERO =========== -->
+<section id="hero" class="hero">
+  <div class="hero-ornament top"></div>
+  <div class="hero-inner">
+    <p class="hero-shlok" data-aos="fade-down">|| शुभं करोति कल्याणम् ||</p>
+    <p class="hero-pre" data-aos="fade-up">With the blessings of our families</p>
+    <h1 class="hero-names" data-aos="zoom-in" data-aos-delay="200">
+      <span class="name">Aarav</span>
+      <span class="amp">&amp;</span>
+      <span class="name">Saanvi</span>
+    </h1>
+    <p class="hero-marathi" data-aos="fade-up" data-aos-delay="400">आरव आणि सान्वी विवाहबद्ध होत आहेत</p>
+    <div class="hero-date" data-aos="fade-up" data-aos-delay="500">
+      <span>गुरुवार</span><span class="dot"></span><span>28 May 2026</span><span class="dot"></span><span>Pune</span>
+    </div>
+    <a href="#invite" class="btn-royal shimmer" data-aos="fade-up" data-aos-delay="700">View Invitation</a>
+  </div>
+  <div class="hero-ornament bottom"></div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Krishna_flute.png" class="hero-krishna" alt="Lord Krishna playing flute">
+  <div class="diya"><div class="flame"></div></div>
+  <div class="diya right"><div class="flame"></div></div>
+</section>
+
+<!-- =========== INVITE / COUNTDOWN =========== -->
+<section id="invite" class="section countdown-section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">Counting every moment</h2>
+  <p class="section-sub" data-aos="fade-up">Until two souls become one</p>
+  <div class="countdown" id="countdown" data-aos="zoom-in">
+    <div class="cd-card"><span id="cd-days">00</span><label>Days</label></div>
+    <div class="cd-card"><span id="cd-hours">00</span><label>Hours</label></div>
+    <div class="cd-card"><span id="cd-mins">00</span><label>Minutes</label></div>
+    <div class="cd-card"><span id="cd-secs">00</span><label>Seconds</label></div>
+  </div>
+</section>
+
+<!-- =========== COUPLE =========== -->
+<section id="couple" class="section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">The Bride &amp; Groom</h2>
+  <p class="section-sub" data-aos="fade-up">वर आणि वधू</p>
+  <div class="couple-grid">
+    <article class="couple-card glass" data-aos="fade-right">
+      <div class="couple-photo" style="background-image:url('https://images.unsplash.com/photo-1512132411229-c30391241dd8?w=800&q=80')"></div>
+      <h3>Aarav Deshmukh</h3>
+      <p class="marathi-accent">चि. आरव</p>
+      <p class="bio">Son of Shri Rajendra &amp; Smt. Anjali Deshmukh — an architect with a love for forts, sitar, and Sunday chai at Sinhagad.</p>
+      <div class="socials"><a href="#">in</a><a href="#">ig</a><a href="#">fb</a></div>
+    </article>
+    <div class="couple-knot" data-aos="zoom-in">
+      <div class="knot-symbol">॥</div>
+      <p>शुभमंगल<br>सावधान</p>
+    </div>
+    <article class="couple-card glass" data-aos="fade-left">
+      <div class="couple-photo" style="background-image:url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80')"></div>
+      <h3>Saanvi Joshi</h3>
+      <p class="marathi-accent">सौ.का.चि. सान्वी</p>
+      <p class="bio">Daughter of Shri Mahesh &amp; Smt. Sujata Joshi — a classical dancer, painter, and the warmest soul in any room.</p>
+      <div class="socials"><a href="#">in</a><a href="#">ig</a><a href="#">fb</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- =========== EVENTS =========== -->
+<section id="events" class="section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">Wedding Ceremonies</h2>
+  <p class="section-sub" data-aos="fade-up">सोहळा</p>
+  <div class="timeline">
+    <div class="t-item" data-aos="fade-up">
+      <div class="t-icon">🌼</div>
+      <div class="t-card glass">
+        <h4>Haldi</h4>
+        <p class="t-meta">26 May 2026 · 10:00 AM</p>
+        <p>Deshmukh Wada, Pune — A morning of golden blessings.</p>
+      </div>
+    </div>
+    <div class="t-item" data-aos="fade-up">
+      <div class="t-icon">🌿</div>
+      <div class="t-card glass">
+        <h4>Mehendi</h4>
+        <p class="t-meta">27 May 2026 · 04:00 PM</p>
+        <p>Joshi Residence — Henna, laughter, and lehengas.</p>
+      </div>
+    </div>
+    <div class="t-item" data-aos="fade-up">
+      <div class="t-icon">🎶</div>
+      <div class="t-card glass">
+        <h4>Sangeet</h4>
+        <p class="t-meta">27 May 2026 · 07:30 PM</p>
+        <p>The Royal Orchid Ballroom — Dance the night away.</p>
+      </div>
+    </div>
+    <div class="t-item" data-aos="fade-up">
+      <div class="t-icon">🪔</div>
+      <div class="t-card glass">
+        <h4>Wedding Ceremony</h4>
+        <p class="t-meta">28 May 2026 · 11:11 AM</p>
+        <p>Shaniwar Wada Gardens — The sacred vows.</p>
+      </div>
+    </div>
+    <div class="t-item" data-aos="fade-up">
+      <div class="t-icon">✨</div>
+      <div class="t-card glass">
+        <h4>Reception</h4>
+        <p class="t-meta">28 May 2026 · 07:30 PM</p>
+        <p>JW Marriott Pune — Celebrate with us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== MARATHI QUOTE =========== -->
+<section class="section quote-section">
+  <blockquote class="marathi-quote" data-aos="fade-up">
+    “दोन जीव, एक प्रवास — आशीर्वादांच्या सावलीत.”
+    <cite>— Two souls, one journey, under the shade of blessings.</cite>
+  </blockquote>
+</section>
+
+<!-- =========== DRESS CODE =========== -->
+<section id="dress" class="section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">Dress Code</h2>
+  <p class="section-sub" data-aos="fade-up">Royal Maharashtrian</p>
+  <div class="dress-grid">
+    <div class="dress-card glass" data-aos="zoom-in">
+      <div class="dress-icon">👰</div>
+      <h4>For Her</h4>
+      <p>Nauvari saree, Paithani, or lehenga in royal hues. Nath, kolhapuri jewellery, gajra.</p>
+    </div>
+    <div class="dress-card glass" data-aos="zoom-in" data-aos-delay="100">
+      <div class="dress-icon">🤵</div>
+      <h4>For Him</h4>
+      <p>Sherwani, kurta-pajama or dhoti-uparna with Peshwai pheta in maroon or gold.</p>
+    </div>
+    <div class="dress-card glass" data-aos="zoom-in" data-aos-delay="200">
+      <h4>Palette</h4>
+      <div class="palette">
+        <span style="background:#7a1c1c"></span>
+        <span style="background:#c2410c"></span>
+        <span style="background:#f5e6c8"></span>
+        <span style="background:#d4af37"></span>
+        <span style="background:#1b1b1b"></span>
+      </div>
+      <p>Maroon · Saffron · Cream · Gold · Ink</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== VENUE =========== -->
+<section id="venue" class="section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">The Venue</h2>
+  <p class="section-sub" data-aos="fade-up">Shaniwar Wada Gardens, Pune</p>
+  <div class="venue-grid">
+    <div class="venue-map glass" data-aos="fade-right">
+      <iframe src="https://www.google.com/maps?q=Shaniwar+Wada+Pune&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="venue-info glass" data-aos="fade-left">
+      <h3>Shaniwar Wada Gardens</h3>
+      <p>Shaniwar Peth, Pune, Maharashtra 411030</p>
+      <p class="muted">Ample parking. Valet available. Please arrive 30 minutes before muhurta.</p>
+      <a class="btn-royal" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=Shaniwar+Wada+Pune">Navigate Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========== GALLERY =========== -->
+<section id="gallery" class="section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">Our Story in Frames</h2>
+  <p class="section-sub" data-aos="fade-up">क्षणचित्रे</p>
+  <div class="masonry" id="masonry">
+    <img data-aos="fade-up" src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80" alt="Engagement">
+    <img data-aos="fade-up" src="https://images.unsplash.com/photo-1607861716497-e65ab29fc7ac?w=800&q=80" alt="">
+    <img data-aos="fade-up" src="https://images.unsplash.com/photo-1621112904887-419379ce6824?w=800&q=80" alt="Haldi Ceremony">
+    <img data-aos="fade-up" src="https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?w=800&q=80" alt="Mehendi">
+    <img data-aos="fade-up" src="https://images.unsplash.com/photo-1583939411023-14783179e581?w=800&q=80" alt="Marathi Bride">
+    <img data-aos="fade-up" src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80" alt="Celebration">
+  </div>
+</section>
+
+<!-- =========== GUEST UPLOAD =========== -->
+<section id="upload" class="section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">Share Your Memories</h2>
+  <p class="section-sub" data-aos="fade-up">Add your photos to our story</p>
+  <div class="upload-box glass" data-aos="zoom-in">
+    <label class="upload-label" for="guestUpload">
+      <span class="upload-plus">+</span>
+      <span>Click to upload your photo</span>
+    </label>
+    <input id="guestUpload" type="file" accept="image/*" hidden multiple>
+    <div class="guest-gallery" id="guestGallery"></div>
+  </div>
+</section>
+
+<!-- =========== RSVP =========== -->
+<section id="rsvp" class="section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">RSVP</h2>
+  <p class="section-sub" data-aos="fade-up">Your presence is our blessing</p>
+  <form class="rsvp-form glass" id="rsvpForm" data-aos="fade-up">
+    <div class="row">
+      <input required name="name" placeholder="Your Name" />
+      <input required type="number" min="1" max="20" name="guests" placeholder="No. of Guests" />
+    </div>
+    <div class="row">
+      <select name="attending" required>
+        <option value="">Will you attend?</option>
+        <option>Joyfully accepts</option>
+        <option>Regretfully declines</option>
+      </select>
+      <select name="event">
+        <option value="">Which events?</option>
+        <option>All ceremonies</option>
+        <option>Wedding only</option>
+        <option>Reception only</option>
+      </select>
+    </div>
+    <textarea name="message" rows="3" placeholder="Leave a blessing or message..."></textarea>
+    <button class="btn-royal shimmer" type="submit">Send RSVP</button>
+    <p class="rsvp-thanks" id="rsvpThanks" hidden>🌸 Thank you! Your blessings are received.</p>
+  </form>
+</section>
+
+<!-- =========== REMINDER =========== -->
+<section id="reminder" class="section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">Save the Date</h2>
+  <div class="reminder-grid">
+    <div class="rem-card glass" data-aos="fade-up">
+      <h4>📅 Add to Calendar</h4>
+      <p>Don't miss the muhurta.</p>
+      <a class="btn-royal" id="calBtn" href="#">Add Event</a>
+    </div>
+    <div class="rem-card glass" data-aos="fade-up" data-aos-delay="100">
+      <h4>🚗 Travel Tip</h4>
+      <p>Reach the venue 30 mins early — traffic in Shaniwar Peth can be heavy.</p>
+    </div>
+    <div class="rem-card glass" data-aos="fade-up" data-aos-delay="200">
+      <h4>🎁 Gifts</h4>
+      <p>Your blessings are the only gift we ask for.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FAMILY =========== -->
+<section id="family" class="section">
+  <div class="ornament-sep" data-aos="fade-up"></div>
+  <h2 class="section-title" data-aos="fade-up">With Love, Our Families</h2>
+  <p class="section-sub" data-aos="fade-up">कुटुंब परिवार</p>
+  <div class="family-grid">
+    <div class="family-card glass" data-aos="fade-right">
+      <p class="fam-tag">Groom's Parents</p>
+      <h3>Shri Rajendra &amp; Smt. Anjali Deshmukh</h3>
+      <p class="muted">Along with the entire Deshmukh parivar</p>
+    </div>
+    <div class="family-card glass" data-aos="fade-left">
+      <p class="fam-tag">Bride's Parents</p>
+      <h3>Shri Mahesh &amp; Smt. Sujata Joshi</h3>
+      <p class="muted">Along with the entire Joshi parivar</p>
+    </div>
+  </div>
+  <p class="blessing" data-aos="fade-up">
+    “शुभाशीर्वाद देऊन हा सोहळा आपल्या उपस्थितीने अधिक संस्मरणीय करावा ही नम्र विनंती.”
+  </p>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer class="footer">
+  <div class="footer-monogram">A<small>&amp;</small>S</div>
+  <p class="footer-thanks">With gratitude, Aarav &amp; Saanvi</p>
+  <div class="footer-socials">
+    <a href="#">Instagram</a><span>·</span><a href="#">Facebook</a><span>·</span><a href="#">WhatsApp</a>
+  </div>
+  <p class="copyright">© 2026 · Made with ❤ for a royal Marathi wedding</p>
+</footer>
+
+<!-- Floating RSVP -->
+<a href="#rsvp" class="floating-rsvp shimmer">RSVP</a>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox"><img id="lightboxImg" alt=""><span class="lb-close">×</span></div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
