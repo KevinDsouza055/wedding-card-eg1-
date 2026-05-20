@@ -202,9 +202,9 @@ rsvpForm.addEventListener("submit", (e) => {
   rsvpForm.reset();
 });
 
-// ----- Lightbox -----
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
+// Lightbox (remains in script.js as it's used by gallery in index.html)
+const lightbox = document.getElementById("lightbox"); // Ensure lightbox element exists in index.html
+const lightboxImg = document.getElementById("lightboxImg"); // Ensure lightboxImg element exists in index.html
 
 document.addEventListener("click", e => {
   if (e.target.tagName === "IMG" && e.target.closest(".masonry")) {

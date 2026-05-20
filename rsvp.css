@@ -1,0 +1,29 @@
+/* Styles specific to the RSVP page */
+
+.rsvp-page-section {
+  min-height: 100vh; /* Ensure it takes full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8rem; /* Adjust for fixed header */
+  padding-bottom: 4rem;
+}
+
+.rsvp-form { padding: 2.5rem; max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+.rsvp-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.rsvp-form input, .rsvp-form select, .rsvp-form textarea {
+  width: 100%; padding: .9rem 1.2rem; font-family: inherit; font-size: 1rem;
+  background: rgba(255,255,255,.4); border: 1px solid var(--glass-border);
+  border-radius: 12px; color: var(--fg); outline: none; -webkit-appearance: none;
+  transition: border-color .3s ease, background .3s ease;
+}
+[data-theme="dark"] .rsvp-form input, [data-theme="dark"] .rsvp-form select, [data-theme="dark"] .rsvp-form textarea {
+  background: rgba(0,0,0,.3);
+}
+.rsvp-form input:focus, .rsvp-form select:focus, .rsvp-form textarea:focus { border-color: var(--gold); }
+.rsvp-thanks { color: var(--gold); text-align: center; font-family: var(--f-display); margin-top: 1rem; }
+@media (max-width: 600px) { 
+  .rsvp-form { padding: 1.5rem; }
+  .rsvp-form .row { grid-template-columns: 1fr; } 
+}
