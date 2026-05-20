@@ -309,6 +309,19 @@ img { max-width: 100%; display: block; }
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40'><path d='M0 20 L120 20 M180 20 L300 20' stroke='%23d4af37' stroke-width='1'/><path d='M150 5 L160 20 L150 35 L140 20 Z' fill='%23d4af37'/><circle cx='130' cy='20' r='2' fill='%23d4af37'/><circle cx='170' cy='20' r='2' fill='%23d4af37'/></svg>") no-repeat center/contain;
 }
 
+/* Royal Ornament Separator */
+.ornament-sep-royal {
+  height: 60px; margin: 0 auto 3rem; max-width: 400px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60'><path d='M0 30 L150 30 M250 30 L400 30' stroke='%23d4af37' stroke-width='1.5'/><path d='M180 30 Q200 10 220 30 Q200 50 180 30' fill='none' stroke='%23d4af37' stroke-width='1.5'/><circle cx='200' cy='30' r='4' fill='%23d4af37'/><circle cx='190' cy='30' r='2' fill='%23d4af37'/><circle cx='210' cy='30' r='2' fill='%23d4af37'/></svg>") no-repeat center/contain;
+  opacity: .9;
+}
+
+/* Marathi Subtitle */
+.section-sub-marathi {
+  font-family: var(--f-marathi); text-align: center; color: var(--maroon);
+  font-size: 1.4rem; margin-bottom: 4rem; letter-spacing: 1px;
+}
+
 .glass {
   background: var(--glass);
   backdrop-filter: blur(16px);
@@ -556,19 +569,163 @@ img { max-width: 100%; display: block; }
   .rsvp-form .row { grid-template-columns: 1fr; } 
 }
 
-/* ========= FAMILY ========= */
-.family-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.family-card { padding: 2.5rem; text-align: center; }
-.fam-tag { color: var(--gold); letter-spacing: 3px; font-size: .8rem; text-transform: uppercase; margin-bottom: 1rem; }
-.family-card h3 { font-family: var(--f-display); color: var(--maroon); font-size: 1.4rem; line-height: 1.4; }
-[data-theme="dark"] .family-card h3 { color: var(--gold-soft); }
+/* ========= FAMILY (ULTRA PREMIUM REDESIGN) ========= */
+#family {
+  position: relative;
+  padding: 6rem 1.5rem;
+  background-image: 
+    radial-gradient(circle at center, var(--cream-soft), transparent),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z' fill='%23d4af37' opacity='0.02'/></svg>");
+  background-size: cover, 350px;
+  background-position: center;
+}
+
+.luxury-mandala-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z' fill='%23d4af37' opacity='0.03'/></svg>");
+  background-size: 300px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.family-layout-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.family-parent-group {
+  flex: 1;
+  min-width: 300px;
+  max-width: 550px;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.family-group-title {
+  font-family: var(--f-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--maroon);
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+}
+.family-group-title::after {
+  content: ""; display: block; width: 50%; height: 2px;
+  background: var(--gold); margin: 0.5rem auto 0;
+}
+
+[data-theme="dark"] .family-group-title { color: var(--gold-soft); }
+
+.family-cards-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.family-portrait-card {
+  flex: 1;
+  padding: 2rem 1rem;
+  text-align: center;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.family-portrait-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 50px -15px rgba(122, 28, 28, 0.4);
+  background: rgba(255, 250, 235, 0.8);
+}
+
+.family-portrait-card::after {
+  content: "";
+  position: absolute;
+  top: -50%; left: -60%; width: 20%; height: 200%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: none;
+  z-index: 5;
+  pointer-events: none;
+}
+.family-portrait-card:hover::after {
+  left: 150%;
+  transition: left 0.8s ease-in-out;
+}
+
+.portrait-frame {
+  width: 150px; height: 210px;
+  border-radius: 50% / 70%;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid var(--gold);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2), 0 0 0 6px rgba(212, 175, 55, 0.1);
+  transition: transform 0.5s ease;
+}
+.family-portrait-card:hover .portrait-frame {
+  transform: scale(1.05);
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parent-name {
+  font-family: var(--f-display);
+  color: var(--maroon);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+[data-theme="dark"] .parent-name { color: var(--gold-soft); }
+
+.parent-name .prefix {
+  color: var(--gold);
+  font-size: 0.9em;
+  font-weight: 400;
+  margin-right: 2px;
+}
+
+.parent-divider {
+  width: 50px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0.8rem auto;
+  opacity: 0.6;
+}
+
+.parent-role { color: var(--gold); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+.family-blessing-line { color: var(--muted); margin-top: 1.5rem; font-style: italic; }
+
 .blessing {
   text-align: center; max-width: 700px; margin: 3rem auto 0;
   font-family: var(--f-marathi); font-size: 1.2rem; color: var(--maroon);
   line-height: 1.8; padding: 0 1rem;
 }
 [data-theme="dark"] .blessing { color: var(--gold-soft); }
-@media (max-width: 700px) { .family-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 768px) {
+  .family-layout-wrapper { flex-direction: column; align-items: center; gap: 5rem; }
+  .family-cards-row { flex-direction: column; align-items: center; gap: 3rem; }
+  .family-portrait-card { width: 100%; max-width: 340px; }
+  .portrait-frame { width: 150px; height: 210px; }
+}
 
 /* ========= FOOTER ========= */
 .footer {
